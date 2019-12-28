@@ -9,12 +9,10 @@
   "author": "Zach Caldwell",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "stripe": "^7.14.0"
   },
-
-  "engines":{
+  "engines": {
     "node": "8.9.1"
-    }
-
-  
+  }
 }

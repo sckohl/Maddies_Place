@@ -51,6 +51,18 @@ body {
 	}	
 }
 
+#buttonDiv {
+	width: 100%;
+align-content: center;
+}
+
+#button1{
+	width: 100%;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+
 #imageBlock {
 	width: 95%;
 	margin: 0 auto 30px auto;

@@ -10,3 +10,12 @@ if(port == null) {
 }
 
 app.listen(port, () => console.log("Example app listening on port " + port));
+
+
+app.get('/', function(req, res){
+	response = "some stuff was entered";
+	console.log(response);
+});
+
+
+
