@@ -7,38 +7,55 @@
 		
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
 		<link rel="stylesheet" href="./assets/css/main.css">
-		<script>
 		
+		<script src="https://js.stripe.com/terminal/v1/"></script>
+		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		  <script>
+// 			  function fetchConnectionToken() {
+//   // Your backend should call /v1/terminal/connection_tokens and return the JSON response from Stripe
+// console.log('started connection token function')
+//   return fetch('localhost:5000/connection_token', { method: "POST" })
+//     .then(response => response.json())
+// 	.then(data => data.secret);
+// 	console.log('FINISHED connection token function')
+	
+// }
+function test(){
+	return   console.log('tested') ;
+}
 
-	const stripe = require('stripe')('sk_test_BBxY1KRFcbhUpQObXz0Myk6300CfguWSH7');
+const stripe = require('stripe')('sk_test_ZtyEjBcAgk6Y3EEA9VaNVveX00Zf9QQwxk');
 
-(async () => {
+(async() =>{
+	console.log('started Async function')
   const charge = await stripe.charges.create({
     amount: 1000,
     currency: 'usd',
     source: 'tok_visa',
-    receipt_email: 'jenny.rosen@example.com',
-  });
+    receipt_email: 'jenny.rosen@example.com',	
+});
+console.log('FINISHED Async function call')
 })();
 
 
-function a(){
-	console.log('button clicked');
-	charge;
-	};
-</script>
+// function a(){
+// 	console.log('button clicked');
+// 	charge;
+// 	};
+// </script>
 	</head>
 	<body>
 		<div id="buttonDiv">
 			
-			<button id="button1" onclick="a();" >button1</button>
+			<button id="button1" onclick='async()'>button1</button>
 			
 		</div>
+
 		<div>
 				<form action = "/process_get" method = "GET">
 					First Name: <input type = "text" name = "first_name">  <br>
 					Last Name: <input type = "text" name = "last_name">
-					<input type = "submit" value = "Submit">
+					<input id='sbutton' type = "submit" value = "Submit">
 				 </form>
 		</div>
 		<h1 id="logo">
