@@ -24,9 +24,11 @@ var style = {
 
 // Create an instance of the card Element.
 var card = elements.create('card', {style: style});
+// var zip = elements.create('iban', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>.
-card.mount('#card-element');
+card.mount('#card-element')
+// zip.mount('#zip-element');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {
