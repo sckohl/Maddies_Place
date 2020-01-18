@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
-		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./assets/css/main.css">
 
-		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		<script src="http://livejs.com/live.js"></script>
 		<script src="https://js.stripe.com/terminal/v1/"></script>
 		
 
@@ -18,11 +18,7 @@
 		<div id="asyncTest">
 			<button id="button1" href="testCallAPI.js" onclick="test()">async() Test call</button>
 		</div>
-		<div id="buttonDiv">
-			<form action = "checkoutPage.html">
-				<button  type="submit">Check Out Page</button>
-			</form>
-		</div>
+
 
 		<!-- <div id="buttonDiv2">
 				<form action = "checkoutPage.html">
@@ -48,9 +44,21 @@
 		<div id="content">
 			<section id="elevatorPitch">
 				<p>Nurturing care for drug-dependent newborns and their mothers.</p>
+				<div id="btncheckoutPage" class="">
+			
+					<a href="checkoutPage.html">	
+						<button  class="btn btn-primary">Check Out Page</button>
+					</a>
+				
+					</div>
 				<p>501(c)3 EIN: 82-4916091</p>
+			
+	
+				<!-- <
 			</section>
-			<!-- <form id="donateButton" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			
+			
+	form id="donateButton" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 				<input type="hidden" name="cmd" value="_s-xclick">
 				<input type="hidden" name="hosted_button_id" value="2E92RSWE5ESFC">
 				<input class="buttonImage" type="image" src="http://www.maddiesplace.org/assets/img/donate-button.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
