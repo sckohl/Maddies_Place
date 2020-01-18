@@ -22,66 +22,66 @@
 // }
 
 
-document.getElementById("test1").innerHTML='TTTTTTTTTTTTTTTTT'; 
+document.getElementById("test1").innerHTML="TTTTTTTTTTTTTTTTT"; 
 
 
-// //var stripe = require('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
-// var elements =stripe.elements();
+var stripe = Stripe('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+var elements =stripe.elements();
 
-// var style = {
-//     base: {
-//       // Add your base input styles here. For example:
-//       fontSize: '16px',
-//       color: '#32325d',
-//     },
-//   };
+var style = {
+    base: {
+      // Add your base input styles here. For example:
+      fontSize: '16px',
+      color: '#32325d',
+    },
+  };
  
-//   // Create an instance of the card Element.
-//   var card = elements.create('card', {style: style});
+  // Create an instance of the card Element.
+  var card = elements.create('card', {style: style});
  
-//   // Add an instance of the card Element into the `card-element` <div>.
-//   document.getElementById('card-element').innerHTML = card.mount('#card-element');
-// const post = event.onCall(async() =>{
-// 	console.log('started Async function')
-//   const charge = await stripe.charges.create({
-//     amount: 1000,
-//     currency: 'usd',
-//     source: 'tok_visa',
-//     receipt_email: 'jenny.rosen@example.com',	
-// });
-// console.log('FINISHED Async function call')
-// })();
+  // Add an instance of the card Element into the `card-element` <div>.
+ card.mount('#card-element');
+const post = event.onCall(async() =>{
+	console.log('started Async function')
+  const charge = await stripe.charges.create({
+    amount: 1000,
+    currency: 'usd',
+    source: 'tok_visa',
+    receipt_email: 'jenny.rosen@example.com',	
+});
+console.log('FINISHED Async function call')
+})();
 
 
-// // Create a token or display an error when the form is submitted.
-// var form = document.getElementById('payment-form');
-// form.addEventListener('submit', function(event) {
-//   event.preventDefault();
+// Create a token or display an error when the form is submitted.
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-//   stripe.createToken(card).then(function(result) {
-//     if (result.error) {
-//       // Inform the customer that there was an error.
-//       var errorElement = document.getElementById('card-errors');
-//       errorElement.textContent = result.error.message;
-//     } else {
-//       // Send the token to your server.
-//       stripeTokenHandler(result.token);
-//     }
-//   });
-// });
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the customer that there was an error.
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server.
+      stripeTokenHandler(result.token);
+    }
+  });
+});
 
-// function stripeTokenHandler(token) {
-//     // Insert the token ID into the form so it gets submitted to the server
-//     var form = document.getElementById('payment-form');
-//     var hiddenInput = document.createElement('input');
-//     hiddenInput.setAttribute('type', 'hidden');
-//     hiddenInput.setAttribute('name', 'stripeToken');
-//     hiddenInput.setAttribute('value', token.id);
-//     form.appendChild(hiddenInput);
+function stripeTokenHandler(token) {
+    // Insert the token ID into the form so it gets submitted to the server
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
   
-//     // Submit the form
-//     form.submit();
-//   }
+    // Submit the form
+    form.submit();
+  }
 
 
 
