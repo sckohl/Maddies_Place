@@ -4,61 +4,41 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description" content="Nurturing care for drug-dependent newborns and their mothers, in Spokane, WA. Specialized in clients affected by Neonatal Abstinence Syndrome, etc." />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="./assets/css/main.css">
-		
+
 		<script type="text/javascript" src="http://livejs.com/live.js"></script>
 		<script src="https://js.stripe.com/terminal/v1/"></script>
 		
-		  <script>
-// 			  function fetchConnectionToken() {
-//   // Your backend should call /v1/terminal/connection_tokens and return the JSON response from Stripe
-// console.log('started connection token function')
-//   return fetch('localhost:5000/connection_token', { method: "POST" })
-//     .then(response => response.json())
-// 	.then(data => data.secret);
-// 	console.log('FINISHED connection token function')
-	
-// }
-function test(){
-	return   console.log('tested') ;
-}
 
-const stripe = require('stripe')('sk_test_ZtyEjBcAgk6Y3EEA9VaNVveX00Zf9QQwxk');
-
-(async() =>{
-	console.log('started Async function')
-  const charge = await stripe.charges.create({
-    amount: 1000,
-    currency: 'usd',
-    source: 'tok_visa',
-    receipt_email: 'jenny.rosen@example.com',	
-});
-console.log('FINISHED Async function call')
-})();
-
-
-// function a(){
-// 	console.log('button clicked');
-// 	charge;
-// 	};
-// </script>
 	</head>
 	<body>
+		<div id="asyncTest">
+			<button id="button1" href="testCallAPI.js" onclick="test()">async() Test call</button>
+		</div>
 		<div id="buttonDiv">
-			
-			<button id="button1" onclick='async()'>button1</button>
-			
+			<form action = "checkoutPage.html">
+				<button type="submit">Payment</button>
+			</form>
 		</div>
 
-		<div>
-				<form action = "/process_get" method = "GET">
-					First Name: <input type = "text" name = "first_name">  <br>
-					Last Name: <input type = "text" name = "last_name">
-					<input id='sbutton' type = "submit" value = "Submit">
-				 </form>
+		<!-- <div id="buttonDiv2">
+				<form action = "checkoutPage.html">
+					<button type="submit">Payment 2</button>
+				</form>
 		</div>
+		<div>
+			<form action = "/process_get" method = "GET">
+				First Name: <input type = "text" name = "first_name">  <br>
+				Last Name: <input type = "text" name = "last_name">
+				<input id='sbutton' type = "submit" value = "Submit">
+			 </form> -->
+	</div>
+
+
+	
 		<h1 id="logo">
 			<img src="./assets/img/mp-logo-black.png" alt="Maddie's Place - Spokane, WA | Newborn and Mother Care Organization">
 		</h1>
@@ -153,4 +133,5 @@ console.log('FINISHED Async function call')
 			<p>© 2018 Maddie's Place</p>
 		</footer>
 	</body>
+	<script src="testCallAPI.js"></script>
 </html>

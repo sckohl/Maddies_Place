@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" conent="width=device-widdth, initial-scale=1,shrink-to-fit=yes">
 
-<title>Rubicon Sensors</title>
-<link rel="stylesheet" href ="{{url_for('static', filename= "stripeCSS.css")}}">
+<title>Maddie's Place Checkout 2</title>
+<!-- <link rel="stylesheet" href ="{{url_for('static', filename= "stripeCSS.css")}}"> -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"> -->
 </head>
 <body>
 
-{% with messages = get_flashed_messages() %}
+<!-- {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
@@ -20,7 +20,7 @@
   {% endif %}
 {% endwith %}
 
-
+ -->
 
 
 <!-- This page uses the Stripe JS library, which does not interact well with bootstrap. 
@@ -36,7 +36,7 @@ As such there is no styling and normal site layout stuff. This page is only for 
     <script src="https://js.stripe.com/v3/"></script>
     <script>
     
-    var stripe = Stripe('pk_test_Uqssjv6b7oCEtTwCNan1phZu');
+    var stripe = Stripe('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
     var elements = stripe.elements();
       
     </script>
@@ -46,15 +46,19 @@ As such there is no styling and normal site layout stuff. This page is only for 
       <label for="card-element">
         Credit or debit card
       </label>
+      
       <div id="card-element">
         <!-- A Stripe Element will be inserted here. -->
+     
+      
       </div>
+     
   
       <!-- Used to display Element errors. -->
       <div id="card-errors" role="alert"></div>
     </div>
   
-    <button>Submit Payment</button>
+    <a href="/completed.html"><button >Submit Payment</button>
   </form>
 
 
@@ -98,7 +102,8 @@ form.addEventListener('submit', function(event) {
     }
   });
 });
-function stripeTokenHandler(token) {
+function stripeTokenHandler(token, res) {
+  //ALERT('staring stipetokenhandler function')
  if (document.getElementById('termsbox').checked == true)
     {
   // Insert the token ID into the form so it gets submitted to the server
@@ -107,9 +112,13 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute('type', 'hidden');
   hiddenInput.setAttribute('name', 'stripeToken');
   hiddenInput.setAttribute('value', token.id);
+  //ALERT('almost done')
   form.appendChild(hiddenInput);
   // Submit the form
-  form.submit();
+  //alert("submitting form")
+  form.submit()
+  ;
+  res.render("completed.html").catch(err => console.log(err));
     }
 else {alert('you must agree to the terms of service and payments of $4.00 per month for each sensor you register')}
 }
