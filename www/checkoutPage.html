@@ -91,11 +91,56 @@ console.log('FINISHED Async function call')
                 <div id="card-element" class="bg-transparent text-white p-2 h-10 mb-4"></div>
                 <div id="card-errors" role="alert"></div>
                 <button  id="checkoutBTN" class="btn btn-primary" href="checkoutPage.js" onclick="push()">Submit Payment</button>
-                <button id="button1" href="testCallAPI.js" onclick="test()">async() Test call</button>
+                <button id="button1" onclick="foo">async() Test call</button>
               <!-- </form> -->
+<p></p>
+<p id="test2"></p>
+<div id="test1"></div>
+              <div class="border-primary border-bottom"></div>
+              <div>
+                <form action="/charge" method="post" id="payment-form">
+                  <div class="form-row">
+                    <label for="card-element">
+                      Credit or debit card
+                    </label>
+                    <div id="card-element">
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+                
+                    <!-- Used to display Element errors. -->
+                    <div id="card-errors" role="alert"></div>
+                  </div>
+                
+                  <button>Submit Payment</button>
+                </form>
+              </div>
   
         </body>
-        <script src="checkoutPage.js"></script>
-        <script src="testCallAPI.js"></script>
+        <script>
+        var message = document.getElementById("test2").innerHTML="testst"; 
+
+        </script>
+        
         <script src="https://js.stripe.com/v3/"></script>
+        <script src="checkoutPage.js"></script>
+        <!-- <script src="testCallAPI.js"></script> -->
+       <script> 
+//         const stripe = require('stripe')('sk_test_BBxY1KRFcbhUpQObXz0Myk6300CfguWSH7');
+
+// const foo = event.onCall(async() => {
+//   const session = await stripe.checkout.sessions.create({
+//     payment_method_types: ['card'],
+//     line_items: [{
+//       name: 'T-shirt',
+//       description: 'Comfortable cotton t-shirt',
+//       images: ['https://example.com/t-shirt.png'],
+//       amount: 500,
+//       currency: 'usd',
+//       quantity: 1,
+//     }],
+//     success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+//     cancel_url: 'https://example.com/cancel',
+//   });
+// });
+       </script>
         </DOCTYPE html>
