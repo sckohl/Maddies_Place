@@ -1,0 +1,10 @@
+{
+    "payments":[
+        {
+            "id":1,
+            "name":"Tier 1",
+            "price":132995,
+            "imgName": "1.jpg"
+        }
+    ]
+}

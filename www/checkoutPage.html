@@ -8,7 +8,9 @@
 
 <title>Maddie's Place Checkout</title>
 <link rel="stylesheet" href="./assets/css/paymentForm.css">
-<script src="https://js.stripe.com/v3/"></script>
+
+
+
 </head>
 
     <body class="bg-grey-900">
@@ -17,13 +19,16 @@
       </nav>
 
   <div>
-    <form action="/charge" method="post" id="payment-form">
+    <form action='/payment' method='POST' id="payment-form">
       <div class="form-row">
         <label for="card-element">
-          Credit or debit card
+          Credit or debit card 
         </label>
         <div id="card-element">
           <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <div id="cardZip-element">
+
         </div>
         
     
@@ -33,12 +38,13 @@
         <!-- Custom zip element listed here -->
       </div>
     
-      <button>Submit Payment</button>
+      <button >Submit Payment</button>
     </form>
   
         </body>
 
-        <script src="checkoutPage.js"></script>
+        <script src="https://js.stripe.com/v3/" ></script>
+        <script src="checkoutPage.js" ></script>
 
        <script> 
 

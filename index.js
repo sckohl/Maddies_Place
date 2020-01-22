@@ -1,88 +1,55 @@
-//stripe stuff. Saved in the express server so no one can see it in the DOM
-//const stripe = require('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
-const stripe = require('stripe')('sk_test_BBxY1KRFcbhUpQObXz0Myk6300CfguWSH7');
-//const path = require('path') //...not sure if I need the path file at this moment (20:00 on a Wednesday night 01/15/2020)
+
+if (process.env.NODE_ENV !=='production')
+{
+	const dotenv=require('dotenv');
+	dotenv.config();
+}
+
+const stripePublicKey = process.env.STRIPE_TEST_SECRET_KEY
+const express = require('express');
+const app = express();
+const bodyParser= require('body-parser');
+
+app.use(bodyParser())
+payments = require('./donations.json');
 
 
-//express server stuff
-const express = require('express')
-const app = express()
-
+//EXPRESS SERVER SETUP CODE:
 app.use(express.static("./www"));
 var port = process.env.PORT || 5000;
-
 
 if(port == null) {
 	console.error("No 'PORT' variable was found in the environment.");
 	process.exit();
 }
 
-
-
 app.listen(port, () => console.log("Example app listening on port " + port));
+//END EXPRESS SERVER SETUP
 
 
-app.get('/test', function(req, res){
-	response = "some stuff was entered";
-	console.log(response);
+//stripe stuff. Saved in the express server so no one can see it in the DOM
+//const stripe = require('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+const stripe = require('stripe')(stripePublicKey);
+//const path = require('path') //...not sure if I need the path file at this moment (20:00 on a Wednesday night 01/15/2020)
+app.post('/payment', async function(req,res){
+const Token =req.body.Token
+console.log(Token)
+console.log(payments.payments[0].price)
+
+
+
+
+
+
+console.log(payments)
+// const token = req.body.stripeToken;
+
+const charge = await stripe.charges.create({
+	amount: payments.payments[0].price,
+	currency: 'usd',
+	description: 'Example Charge1',
+	source: Token,
+	})
+res.sendfile('./www/completed.html')
 });
-
-app.use('/nest', (req, res, next) => {
-	console.log(process.env);
-	next();
-});
-
-
-
-
-// const stripe = require('stripe')('sk_test_BBxY1KRFcbhUpQObXz0Myk6300CfguWSH7');
-
-// Token is created using Stripe Checkout or Elements!
-// Get the payment token ID submitted by the form:
-// const token = request.body.stripeToken; // Using Express
-
-// const charge = await stripe.charges.create({
-//   amount: 999,
-//   currency: 'usd',
-//   description: 'Example charge',
-//   source: token,
-// });
-
-// app.post("/charge", (req, res) => {
-// 	try {
-// 		stripe.customers.create({
-// 			name: req.body.name,
-// 			email: req.body.email,
-// 			source: req.body.stripeToken
-// 		}).then(customer => stripe.charges.create({
-// 			amount: req.body.amount * 100,
-// 			currenct: 'usd',
-// 			customer: customer.id
-// 		})
-// 		).then(() => res.render("completed.html")).catch(err => console.log(err));
-// 	} catch (err) {
-// 		res.send(err);
-// 	}
-// });
-
-
-
-// const stripe = require('stripe')('sk_test_BBxY1KRFcbhUpQObXz0Myk6300CfguWSH7');
-
-// (async () => {
-//   const session = await stripe.checkout.sessions.create({
-//     payment_method_types: ['card'],
-//     line_items: [{
-//       name: 'T-shirt',
-//       description: 'Comfortable cotton t-shirt',
-//       images: ['https://example.com/t-shirt.png'],
-//       amount: 500,
-//       currency: 'usd',
-//       quantity: 1,
-//     }],
-//     success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-//     cancel_url: 'https://example.com/cancel',
-//   });
-// })();
-
 

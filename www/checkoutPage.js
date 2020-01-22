@@ -1,5 +1,9 @@
+
+
 // Create a Stripe client.
 var stripe = Stripe('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+
+
 
 // Create an instance of Elements.
 var elements = stripe.elements();
@@ -24,10 +28,13 @@ var style = {
 
 // Create an instance of the card Element.
 var card = elements.create('card', {style: style});
+var cardZip = elements.create('iban', {style: style})
 // var zip = elements.create('iban', {style: style});
+
 
 // Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element')
+
 // zip.mount('#zip-element');
 
 // Handle real-time validation errors from the card Element.
@@ -50,9 +57,11 @@ form.addEventListener('submit', function(event) {
       // Inform the user if there was an error.
       var errorElement = document.getElementById('card-errors');
       errorElement.textContent = result.error.message;
+
     } else {
       // Send the token to your server.
       stripeTokenHandler(result.token);
+   
     }
   });
 });
@@ -63,9 +72,10 @@ function stripeTokenHandler(token) {
   var form = document.getElementById('payment-form');
   var hiddenInput = document.createElement('input');
   hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('name', 'Token');
   hiddenInput.setAttribute('value', token.id);
   form.appendChild(hiddenInput);
+
 
   // Submit the form
   form.submit();
