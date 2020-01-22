@@ -74,7 +74,7 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute('type', 'hidden');
   hiddenInput.setAttribute('name', 'Token');
   hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
+   form.appendChild(hiddenInput);
 
 
   // Submit the form
