@@ -39,18 +39,20 @@ app.post('/payment', async function (req,res){
 	const Token =req.body.Token;
 	const Description = req.body.Description
 	console.log(Token);
-	console.log(payments.payments[0].price);
+	//console.log(payments.payments[0].price);
 	const PersonName = req.body.InputName;
 	console.log(req.body.InputName +': First InputName console log');
-	console.log(payments);
-	console.log(Description)
+	//console.log(payments);
+	//console.log(Description)
+	console.log(req.body.Amount)
 	// stripe.customers.create({
 	// 	email: req.body.InputEmail,
 	// 	name: req.body.InputName
 	// }).then(
 	// customer => 
 		stripe.charges.create({
-		amount: payments.payments[0].price,
+			amount: req.body.Amount,
+		//amount: payments.payments[0].price,
 		currency: 'usd',
 		description: Description,
 		source: Token,

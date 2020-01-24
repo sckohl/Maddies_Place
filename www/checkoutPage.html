@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<span lang="en">
 <head>
 <meta charset="utf-8">
 
@@ -7,7 +7,8 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
 <title>Maddie's Place Checkout</title>
-<link rel="stylesheet" href="./assets/css/paymentForm.css">
+<!-- <link rel="stylesheet" href="./assets/css/paymentForm.css"> -->
+<link rel="stylesheet" href="./assets//css//main.css">
 
 
 
@@ -15,10 +16,16 @@
 
     <body class="bg-grey-900">
       <nav class="navbar navbar-dark bg-dark">
+       <span>
         <h1 class="navbar-text text-white align-center">Donation App</h1>
+   </span>
+   <span>
+    <img width=500 src="assets/img/mp-logo-black.png" aling="right">
+   </span>
       </nav>
 
   <div>
+    
     <form action='/payment' method='POST' id="payment-form">
       <div class="form-row">
         <label for="card-element">
@@ -36,13 +43,36 @@
         <div id="card-errors" role="alert"></div>
 
       </div>
-      <div>
+      <div class='CheckoutInfo'>
         <label>Name: </label>
-        <input name='InputName'>
+        <input name='InputName' required='required'>
+      </div>
+        <div class='CheckoutInfo'>
         <label>Email:</label> 
-        <input name='InputeEmail'>
+        <input name='InputeEmail' required='required'>
+      </div>
+        
+<div class='parentCheckout'>
+  <div= class='childCheckout'>
+
+  </div>
+      <div class='CheckoutInfo'>
         <label>Description: </label>
-        <input name='Description'>
+        <input name='Description' required='required'>
+      </div>
+        <div class='CheckoutInfo'>
+        <label>Amount:</label>
+        <input name='Amount' type='number' step='any' required='reuired' min='0.00' > 
+      </div>
+        <!--pattern='\d?\d\.\d\d' onchange="check(this)" >
+         <script>
+          function check(elem) {
+            if(!elem.value.match(/^\d?\d\.\d\d$/)) {
+              alert('Error in data – use the format dd.dd (d = digit)');
+            }
+          }
+          </script> -->
+      </div>
       </div>
     
       <button >Submit Payment</button>
