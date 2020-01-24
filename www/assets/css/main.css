@@ -30,17 +30,18 @@ body {
 	width: 100%;
 }
 
-.CheckoutInfo {
-	padding: 0;
-	margin: 1em 0 0 0;
-	width: 100%;
+.masterInfo{
+	margin: auto;
+	padding: 10px;
+}
+
+.CheckoutInfoTitles {
+	width: 15%;
 	float: left;
+}
 
-	/* text-align: justify; */
-
-	text-align-last: center;
-
-	
+.CheckoutInfoInput{
+	margin-left: 15%;
 
 }
 

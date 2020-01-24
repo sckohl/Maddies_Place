@@ -27,53 +27,82 @@
   <div>
     
     <form action='/payment' method='POST' id="payment-form">
-      <div class="form-row">
-        <label for="card-element">
-          Credit or debit card 
-        </label>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
-        <div id="cardZip-element">
+          <div class="form-row">
+            <label for="card-element">
+              Credit or debit card 
+            </label>
+            <div id="card-element">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+            <div id="cardZip-element">
 
-        </div>
+            </div>
+            
         
-    
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
+            <!-- Used to display Element errors. -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+      
+  <section class='masterInfo'>
+    <section class='CheckoutInfoTitles'>
+          <div>
+          <label>Name: </label>
+          </div>
+          <div>
+            <label>Email:</label> 
+          </div>  
+          <div>
+            <label>Description: </label>
+          </div>
+          <div>  
+            <label>Amount:</label>
+          </div>
+    </section>
 
-      </div>
-      <div class='CheckoutInfo'>
-        <label>Name: </label>
-        <input name='InputName' required='required'>
-      </div>
-        <div class='CheckoutInfo'>
-        <label>Email:</label> 
-        <input name='InputeEmail' required='required'>
-      </div>
-        
-<div class='parentCheckout'>
-  <div= class='childCheckout'>
+      <section class='CheckoutInfoInput'>
+          <div>
+            <input name='InputName' required='required' value='name' onfocus="if(this.value == 'name') {this.value='';}" >
+          </div>
+          <div>
+            <input name='InputeEmail' required='required' value='Email' onfocus="if(this.value == 'Email') {this.value='';}"  >
+          </div>
+          <div>
+            <input name='Description' required='required' value='Description of Donation' onfocus="if(this.value == 'Description of Donation') {this.value='';}" >
+          </div>
+          <div>
+            <input name='Amount' type='number' step='any' required='reuired' min='0.00'  value='Donation Amount' onfocus="if(this.value == 'Donation Amount') {this.value='';}" > 
+          </div>    
+        </section>
+</section>
 
-  </div>
-      <div class='CheckoutInfo'>
-        <label>Description: </label>
-        <input name='Description' required='required'>
-      </div>
+
+<!--     OLD ONE KEEPING FOR REFERENCE
         <div class='CheckoutInfo'>
-        <label>Amount:</label>
-        <input name='Amount' type='number' step='any' required='reuired' min='0.00' > 
-      </div>
-        <!--pattern='\d?\d\.\d\d' onchange="check(this)" >
-         <script>
-          function check(elem) {
-            if(!elem.value.match(/^\d?\d\.\d\d$/)) {
-              alert('Error in data – use the format dd.dd (d = digit)');
+          <label>Name: </label>
+          <input name='InputName' required='required'>
+        </div>
+        <div class='CheckoutInfo'>
+          <label>Email:</label> 
+          <input name='InputeEmail' required='required'>
+        </div>
+        <div class='CheckoutInfo'>
+          <label>Description: </label>
+          <input name='Description' required='required'>
+        </div>
+        <div class='CheckoutInfo'>
+          <label>Amount:</label>
+          <input name='Amount' type='number' step='any' required='reuired' min='0.00' > 
+        </div> -->
+          <!--pattern='\d?\d\.\d\d' onchange="check(this)" >
+          <script>
+            function check(elem) {
+              if(!elem.value.match(/^\d?\d\.\d\d$/)) {
+                alert('Error in data – use the format dd.dd (d = digit)');
+              }
             }
-          }
-          </script> -->
-      </div>
-      </div>
+            </script> -->
+      
+
     
       <button >Submit Payment</button>
     </form>
