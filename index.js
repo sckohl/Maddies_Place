@@ -56,6 +56,13 @@ app.post('/payment', async function (req,res){
 		currency: 'usd',
 		description: Description,
 		source: Token,
+		receipt_email: req.body.InputEmail,
+		metadata: {
+			CustomerName : req.body.InputName,
+			CustomerEmail: req.body.InputEmail,
+			CustomerDescription: req.body.Description,
+			PaymentAmount: req.body.Amount,
+		},
 		// customer: customer.id
 		}
 		// )
