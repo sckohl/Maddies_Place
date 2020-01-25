@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !=='production')
 	dotenv.config();
 }
 
-const stripePublicKey = process.env.STRIPE_TEST_SECRET_KEY
+const stripeSecretPublicKey = process.env.STRIPE_TEST_SECRET_KEY
 const express = require('express');
 const app = express();
 const bodyParser= require('body-parser');
@@ -29,13 +29,14 @@ app.listen(port, () => console.log("Example app listening on port " + port));
 
 //stripe stuff. Saved in the express server so no one can see it in the DOM
 //const stripe = require('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
-const stripe = require('stripe')(stripePublicKey);
+const stripe = require('stripe')(stripeSecretPublicKey);
 //const path = require('path') //...not sure if I need the path file at this moment (20:00 on a Wednesday night 01/15/2020)
 
 
 
 
 app.post('/payment', async function (req,res){
+	
 	const Token =req.body.Token;
 	const Description = req.body.Description
 	console.log(Token);
@@ -62,6 +63,7 @@ app.post('/payment', async function (req,res){
 			CustomerEmail: req.body.InputEmail,
 			CustomerDescription: req.body.Description,
 			PaymentAmount: req.body.Amount,
+			MaddiesPlace_EIN: '82-4916091',
 		},
 		// customer: customer.id
 		}

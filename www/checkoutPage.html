@@ -61,16 +61,33 @@
 
       <section class='CheckoutInfoInput'>
           <div>
-            <input name='InputName' required='required' value='name' onfocus="if(this.value == 'name') {this.value='';}" >
+            <input name='InputName' type='text' required='required' value='name' onfocus="if(this.value == 'name') {this.value='';}" >
           </div>
           <div>
-            <input name='InputEmail' required='required' value='Email' onfocus="if(this.value == 'Email') {this.value='';}"  >
+            <input name='InputEmail' type='email' required='required' value='Email' onfocus="if(this.value == 'Email') {this.value='';}"  >
           </div>
           <div>
             <input name='Description' required='required' value='Description of Donation' onfocus="if(this.value == 'Description of Donation') {this.value='';}" >
           </div>
           <div>
-            <input name='Amount' type='number' step='any' required='reuired' min='0.00'  value='Donation Amount' onfocus="if(this.value == 'Donation Amount') {this.value='';}" > 
+            <input name='Amount' type='number' step='any' required='reuired' min='0.00'   onChange='CurrencyFormatted(this)' >
+       <script>
+       function CurrencyFormatted(amount) {
+	var i = parseFloat(amount);
+	if(isNaN(i)) { i = 0.00; }
+	var minus = '';
+	if(i < 0) { minus = '-'; }
+	i = Math.abs(i);
+	i = parseInt((i + .005) * 100);
+	i = i / 100;
+	s = new String(i);
+	if(s.indexOf('.') < 0) { s += '.00'; }
+	if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
+  s = minus + s;
+  alert(s);
+  return s;
+ 
+}</script>
           </div>    
         </section>
 </section>
@@ -107,6 +124,9 @@
       <button >Submit Payment</button>
     </form>
   
+    <div>
+      <p>All payments processed by <a href='https://stripe.com/'> Stripe</a></p>
+    </div>
         </body>
 
         <script src="https://js.stripe.com/v3/" ></script>

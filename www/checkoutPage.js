@@ -1,7 +1,13 @@
 
+// if (process.env.NODE_ENV !=='production')
+// {
+// 	const dotenv=require('dotenv');
+// 	dotenv.config();
+// }
 
 // Create a Stripe client.
 var stripe = Stripe('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+// var stripe = Stripe(process.env.STRIPE_TEST_PUBLIC_KEY);
 
 
 
