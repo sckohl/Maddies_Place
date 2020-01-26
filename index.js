@@ -27,10 +27,8 @@ app.listen(port, () => console.log("Example app listening on port " + port));
 //END EXPRESS SERVER SETUP
 
 
-//stripe stuff. Saved in the express server so no one can see it in the DOM
-//const stripe = require('stripe')('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+
 const stripe = require('stripe')(stripeSecretPublicKey);
-//const path = require('path') //...not sure if I need the path file at this moment (20:00 on a Wednesday night 01/15/2020)
 
 
 
@@ -39,18 +37,13 @@ app.post('/payment', async function (req,res){
 
 	const Token =req.body.Token;
 	const Description = req.body.Description
-	console.log(Token);
+	// console.log(Token);
 	//console.log(payments.payments[0].price);
 	const PersonName = req.body.InputName;
-	console.log(req.body.InputName +': First InputName console log');
-	//console.log(payments);
-	//console.log(Description)
-	console.log(req.body.Amount)
-	// stripe.customers.create({
-	// 	email: req.body.InputEmail,
-	// 	name: req.body.InputName
-	// }).then(
-	// customer => 
+	// console.log(req.body.InputName +': First InputName console log');
+
+	// console.log(req.body.Amount)
+
 		stripe.charges.create({
 			amount: req.body.Amount,
 		//amount: payments.payments[0].price,
