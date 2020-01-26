@@ -36,7 +36,7 @@ const stripe = require('stripe')(stripeSecretPublicKey);
 
 
 app.post('/payment', async function (req,res){
-	
+
 	const Token =req.body.Token;
 	const Description = req.body.Description
 	console.log(Token);

@@ -38,11 +38,12 @@ body {
 .CheckoutInfoTitles {
 	width: 15%;
 	float: left;
+	color: black;
 }
 
 .CheckoutInfoInput{
 	margin-left: 15%;
-
+	
 }
 
 #elevatorPitch {
