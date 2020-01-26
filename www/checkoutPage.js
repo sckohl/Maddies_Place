@@ -1,8 +1,10 @@
 
 // Create a Stripe client.
-var stripe = Stripe('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
+//////TEST Public KEY
+//var stripe = Stripe('pk_test_D6FhaJCLuADq8OkVFKhiHk2x00pVC5dEQW');
 
-
+//Live Public KEY
+var stripe = Stripe('pk_live_RFWq5n4OYmaW9zbJd52VCg4g00IAfAXObe');
 
 
 // Create an instance of Elements.
