@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<span lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" conent="width=device-widdth, initial-scale=1,shrink-to-fit=yes">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+<title>Maddie's Place Checkout</title>
+<!-- <link rel="stylesheet" href="./assets/css/paymentForm.css"> -->
+<link rel="stylesheet" href="./assets//css//main.css">
+
+
+
+</head>
+
+    <body class="bg-grey-900">
+      <nav class="navbar navbar-dark bg-dark">
+       <span>
+        <h1 class="navbar-text text-white align-center">Donation App</h1>
+   </span>
+   <span>
+    <img width=500 src="assets/img/mp-logo-black.png" aling="right">
+   </span>
+      </nav>
+
+  <div>
+    
+    <form action='/payment' method='POST' id="payment-form">
+          <div class="form-row">
+            <label for="card-element">
+              Credit or debit card 
+            </label>
+            <div id="card-element">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+            <div id="cardZip-element">
+
+            </div>
+            
+        
+            <!-- Used to display Element errors. -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+      
+  <section class='masterInfo'>
+    <section class='CheckoutInfoTitles'>
+          <div>
+          <label>Name: </label>
+          </div>
+          <div>
+            <label>Email:</label> 
+          </div>  
+          <div>
+            <label>Description: </label>
+          </div>
+          <div>  
+            <label>Amount:</label>
+          </div>
+    </section>
+
+      <section class='CheckoutInfoInput'>
+          <div>
+            <input name='InputName' type='text' required='required' value='name' onfocus="if(this.value == 'name') {this.value='';}" >
+          </div>
+          <div>
+            <input name='InputEmail' type='email' required='required' value='Email' onfocus="if(this.value == 'Email') {this.value='';}"  >
+          </div>
+          <div>
+            <input name='Description' required='required' value='Description of Donation' onfocus="if(this.value == 'Description of Donation') {this.value='';}" >
+          </div>
+          <div>
+            <input name='Amount' type='number' step='any' required='required' min='50' >
+
+          </div>    
+        </section>
+</section>
+
+
+    
+      <button >Submit Payment</button>
+    </form>
+  
+    <div>
+      <p>All payments processed by <a href='https://stripe.com/'> Stripe</a></p>
+    </div>
+        </body>
+
+        <script src="https://js.stripe.com/v3/" ></script>
+        <script src="checkoutPage.js" ></script>
+
+       <script> 
+
+       </script>
+        </DOCTYPE html>
